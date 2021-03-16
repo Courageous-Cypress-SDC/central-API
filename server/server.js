@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   res.send('hello world');
 });
 
-app.get('localhost:3001/products', (req, res) => {
+app.get('/products', (req, res) => {
   axios.get('http://localhost:3001/products')
     .then((response) => {
       console.log(response.data);
@@ -33,7 +33,7 @@ app.get('/reviews', (req, res) => {
     })
 })
 
-app.get('localhost:5001/qa', (req, res) => {
+app.get('/qa', (req, res) => {
   axios.get('http://localhost:5001/qa')
     .then((response) => {
       console.log(response.data);
