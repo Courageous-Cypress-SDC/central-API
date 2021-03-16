@@ -4,10 +4,14 @@ const path = require('path');
 
 const app = express();
 
+const reviewRoutes = require('./routes/reviewRoutes.js');
+
 const axios = require('axios');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use('/reviews', reviewRoutes);
 
 app.get('/', (req, res) => {
   res.send('hello world');
@@ -15,18 +19,6 @@ app.get('/', (req, res) => {
 
 app.get('/products', (req, res) => {
   axios.get('http://localhost:3001/products/')
-    .then((response) => {
-      console.log(response.data);
-      res.send('w/e');
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).send(error);
-    })
-})
-
-app.get('/reviews', (req, res) => {
-  axios.get('http://localhost:4001/reviews')
     .then((response) => {
       console.log(response.data);
       res.send('w/e');
@@ -54,3 +46,8 @@ const port = 8394;
 const server = app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
+
+module.exports = {
+  app,
+  server,
+};
