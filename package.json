@@ -1,0 +1,19 @@
+{
+  "name": "project-catwalk-central-api",
+  "version": "1.0.0",
+  "description": "API Service for routing services for project-catwalk",
+  "scripts": {
+    "server-dev": "npx nodemon server/server.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "npm": "^7.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
+  }
+}
