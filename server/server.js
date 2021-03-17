@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 
 const reviewRoutes = require('./routes/reviewRoutes.js');
+const productRoutes = require('./routes/productRoutes.js');
 
 const axios = require('axios');
 
@@ -17,17 +18,7 @@ app.get('/', (req, res) => {
   res.send('hello world');
 });
 
-app.get('/products', (req, res) => {
-  axios.get('http://localhost:3001/products/')
-    .then((response) => {
-      console.log(response.data);
-      res.send('w/e');
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).send(error);
-    })
-})
+app.get('/products', productRoutes);
 
 app.get('/qa', (req, res) => {
   axios.get('http://localhost:5001/qa')
