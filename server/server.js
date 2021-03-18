@@ -5,6 +5,8 @@ const path = require('path');
 const app = express();
 
 const reviewRoutes = require('./routes/reviewRoutes.js');
+const questionRoutes = require('./routes/questionRoutes.js');
+const answerRoutes = require('./routes/answerRoutes.js');
 
 const axios = require('axios');
 
@@ -12,6 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/reviews', reviewRoutes);
+app.use('/questions', questionRoutes);
+app.use('/answers', answerRoutes);
+
 
 app.get('/', (req, res) => {
   res.send('hello world');
