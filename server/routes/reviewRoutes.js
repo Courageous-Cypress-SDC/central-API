@@ -4,9 +4,9 @@ const axios = require('axios');
 const reviewUrl = 'http://localhost:4001';
 
 router.get('/', (req, res) => {
-  axios.get(reviewUrl)
+  console.log(req.url);
+  axios.get(`${reviewUrl}${req.url}`)
     .then((response) => {
-      console.log(response.data);
       res.send(response.data);
     })
     .catch((error) => {
@@ -16,9 +16,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/meta', (req, res) => {
-  axios.get(`${reviewUrl}/meta`)
+  axios.get(`${reviewUrl}${req.url}`)
     .then((response) => {
-      console.log(response.data);
       res.send(response.data);
     })
     .catch((error) => {
