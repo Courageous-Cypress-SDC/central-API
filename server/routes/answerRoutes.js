@@ -27,3 +27,5 @@ router.put('/*/report', (req, res) => {
     res.status(400).send(error);
   })
 });
+
+module.exports = router;

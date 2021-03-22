@@ -1,14 +1,14 @@
 const express = require('express');
-
 const path = require('path');
+const axios = require('axios');
 
 const app = express();
 
 const reviewRoutes = require('./routes/reviewRoutes.js');
 const questionRoutes = require('./routes/questionRoutes.js');
 const answerRoutes = require('./routes/answerRoutes.js');
-
-const axios = require('axios');
+const productRoutes = require('./routes/productRoutes.js');
+const styleRoutes = require('./routes/styleRoutes.js');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,13 +16,8 @@ app.use(express.json());
 app.use('/reviews', reviewRoutes);
 app.use('/qa/questions', questionRoutes);
 app.use('/qa/answers', answerRoutes);
-
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
-
-app.get('/products', productRoutes);
-
+app.use('/products', productRoutes);
+app.use('/styles', styleRoutes);
 
 const port = 8394;
 
