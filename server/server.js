@@ -3,6 +3,7 @@ const path = require('path');
 const axios = require('axios');
 
 const app = express();
+const app1 = express();
 
 const reviewRoutes = require('./routes/reviewRoutes.js');
 const questionRoutes = require('./routes/questionRoutes.js');
@@ -18,6 +19,7 @@ app.use('/qa/questions', questionRoutes);
 app.use('/qa/answers', answerRoutes);
 app.use('/products', productRoutes);
 app.use('/styles', styleRoutes);
+app1.use('/styles', styleRoutes);
 
 const port = 8394;
 
