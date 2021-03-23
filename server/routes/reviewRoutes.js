@@ -4,7 +4,6 @@ const axios = require('axios');
 const reviewUrl = 'http://localhost:4001';
 
 router.get('/', (req, res) => {
-  console.log(req.url);
   axios.get(`${reviewUrl}${req.url}`)
     .then((response) => {
       res.send(response.data);
@@ -27,10 +26,9 @@ router.get('/meta', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  axios.post(`${reviewUrl}/`, {})
+  axios.post(`${reviewUrl}/`, req.body)
     .then((response) => {
-      console.log(response.data);
-      res.send(response.data);
+      res.status(201).send(response.data);
     })
     .catch((error) => {
       console.log(error);
@@ -41,8 +39,7 @@ router.post('/', (req, res) => {
 router.put('/*/helpful', (req, res) => {
   axios.put(`${reviewUrl}${req.url}/`, {})
     .then((response) => {
-      console.log(response.data);
-      res.send(response.data);
+      res.status(204).send(response.data);
     })
     .catch((error) => {
       console.log(error);
@@ -53,8 +50,7 @@ router.put('/*/helpful', (req, res) => {
 router.put('/*/report', (req, res) => {
   axios.put(`${reviewUrl}${req.url}/`, {})
     .then((response) => {
-      console.log(response.data);
-      res.send(response.data);
+      res.status(204).send(response.data);
     })
     .catch((error) => {
       console.log(error);
