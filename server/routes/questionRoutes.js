@@ -3,7 +3,7 @@ const router = express.Router();
 
 const qaURL = 'http://localhost:5001/';
 
-router.get('/', (req, res) => {
+router.get('/:product_id/:page/:count', (req, res) => {
   axios.get(qaURL)
   .then((response) => {
     console.log(response.data);
