@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-const qaURL = 'ec2-54-219-4-157.us-west-1.compute.amazonaws.com';
+const qaURL = 'http://ec2-54-219-4-157.us-west-1.compute.amazonaws.com/';
 
 router.get('/:product_id/:page/:count', (req, res) => {
   axios.get(`${qaURL}${req.url}`)
