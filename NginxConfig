@@ -1,0 +1,13 @@
+upstream central-API {
+    least_conn;
+    server ##.compute.amazonaws.com:8394;
+    server ##.compute.amazonaws.com:8394;
+}
+
+server {
+  listen 82;
+
+  location / {
+     proxy_pass central-API;
+  }
+}
